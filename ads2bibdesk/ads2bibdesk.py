@@ -366,7 +366,7 @@ def process_token(article_identifier, prefs, bibdesk, skip_bibcode=False):
     logger.debug("{}".format(ads_bibtex))
 
     article_bibcode = ads_article.bibcode
-    article_esources = ads_article.esources
+    article_esources = [] if ads_article.esources is None else ads_article.esources
 
     if 'true' in prefs['options']['download_pdf'].lower():
         pdf_filename, pdf_status = process_pdf(article_bibcode, article_esources, prefs=prefs)
